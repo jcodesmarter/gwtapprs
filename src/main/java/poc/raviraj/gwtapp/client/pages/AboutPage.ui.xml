@@ -1,0 +1,13 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<g:HTMLPanel>
+		<div>
+			<h2>About</h2>
+			<h3>POC - GWT using RPC / Hibernate</h3>
+			<ul>
+				<li>This project POC is performed by Raviraj Shettigar</li>
+				<li>Project requirement is to design UI using Google Web Toolkit and communicate with backend using RPC.</li>
+			</ul>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

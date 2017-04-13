@@ -1,0 +1,15 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<g:HTMLPanel styleName="top-panel">
+		<div class="logo">
+			Gwt APP POC
+		</div>
+		<header>
+			<g:MenuBar width="500" focusOnHoverEnabled="true" >
+				<g:MenuItem text="Home" title="Home" ui:field="homeLink"></g:MenuItem>
+				<g:MenuItem text="About" title="About" ui:field="aboutLink"></g:MenuItem>
+				<g:MenuItem text="Contact" title="Contact" ui:field="contactLink"></g:MenuItem>
+			</g:MenuBar>
+		</header>
+	</g:HTMLPanel>
+</ui:UiBinder> 

@@ -1,0 +1,108 @@
+<xs:schema xmlns:tns="http://service.cxfwspoc.raviraj.poc/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://service.cxfwspoc.raviraj.poc/" version="1.0">
+
+  <xs:element name="getAllDepartments" type="tns:getAllDepartments"/>
+
+  <xs:element name="getAllDepartmentsResponse" type="tns:getAllDepartmentsResponse"/>
+
+  <xs:element name="getAllDesignations" type="tns:getAllDesignations"/>
+
+  <xs:element name="getAllDesignationsResponse" type="tns:getAllDesignationsResponse"/>
+
+  <xs:element name="getAllGenders" type="tns:getAllGenders"/>
+
+  <xs:element name="getAllGendersResponse" type="tns:getAllGendersResponse"/>
+
+  <xs:element name="getAllRoles" type="tns:getAllRoles"/>
+
+  <xs:element name="getAllRolesResponse" type="tns:getAllRolesResponse"/>
+
+  <xs:complexType name="getAllDepartments">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllDepartmentsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:department"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="department">
+    <xs:complexContent>
+      <xs:extension base="tns:masterType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="masterType">
+    <xs:complexContent>
+      <xs:extension base="tns:softDeleteableModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="keyId" type="xs:long"/>
+          <xs:element minOccurs="0" name="keyName" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="softDeleteableModel">
+    <xs:sequence>
+      <xs:element name="deleteFlag" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllGenders">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllGendersResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:gender"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="gender">
+    <xs:complexContent>
+      <xs:extension base="tns:masterType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="getAllDesignations">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllDesignationsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:designation"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="designation">
+    <xs:complexContent>
+      <xs:extension base="tns:masterType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="getAllRoles">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllRolesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:role"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="role">
+    <xs:complexContent>
+      <xs:extension base="tns:masterType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+</xs:schema>

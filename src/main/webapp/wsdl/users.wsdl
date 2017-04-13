@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="users" targetNamespace="http://service.cxfwspoc.raviraj.poc/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.cxfwspoc.raviraj.poc/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://service.cxfwspoc.raviraj.poc/" schemaLocation="users_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="findResponse">
+    <wsdl:part name="parameters" element="tns:findResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delete">
+    <wsdl:part name="parameters" element="tns:delete">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="paginatedResponse">
+    <wsdl:part name="parameters" element="tns:paginatedResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="paginated">
+    <wsdl:part name="parameters" element="tns:paginated">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="find">
+    <wsdl:part name="parameters" element="tns:find">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllResponse">
+    <wsdl:part name="parameters" element="tns:findAllResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part name="parameters" element="tns:deleteResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="save">
+    <wsdl:part name="parameters" element="tns:save">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllByFirstNameOrLastNameOrUsernameResponse">
+    <wsdl:part name="parameters" element="tns:findAllByFirstNameOrLastNameOrUsernameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveResponse">
+    <wsdl:part name="parameters" element="tns:saveResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllByFirstNameOrLastNameOrUsername">
+    <wsdl:part name="parameters" element="tns:findAllByFirstNameOrLastNameOrUsername">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAll">
+    <wsdl:part name="parameters" element="tns:findAll">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="userService">
+    <wsdl:operation name="save">
+      <wsdl:input name="save" message="tns:save">
+    </wsdl:input>
+      <wsdl:output name="saveResponse" message="tns:saveResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="paginated">
+      <wsdl:input name="paginated" message="tns:paginated">
+    </wsdl:input>
+      <wsdl:output name="paginatedResponse" message="tns:paginatedResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input name="delete" message="tns:delete">
+    </wsdl:input>
+      <wsdl:output name="deleteResponse" message="tns:deleteResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <wsdl:input name="find" message="tns:find">
+    </wsdl:input>
+      <wsdl:output name="findResponse" message="tns:findResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAll">
+      <wsdl:input name="findAll" message="tns:findAll">
+    </wsdl:input>
+      <wsdl:output name="findAllResponse" message="tns:findAllResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllByFirstNameOrLastNameOrUsername">
+      <wsdl:input name="findAllByFirstNameOrLastNameOrUsername" message="tns:findAllByFirstNameOrLastNameOrUsername">
+    </wsdl:input>
+      <wsdl:output name="findAllByFirstNameOrLastNameOrUsernameResponse" message="tns:findAllByFirstNameOrLastNameOrUsernameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="usersSoapBinding" type="tns:userService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="paginated">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="paginated">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="paginatedResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="save">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="saveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="delete">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="find">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllByFirstNameOrLastNameOrUsername">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findAllByFirstNameOrLastNameOrUsername">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllByFirstNameOrLastNameOrUsernameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="users">
+    <wsdl:port name="userServicePort" binding="tns:usersSoapBinding">
+      <soap:address location="http://localhost:9090/userServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

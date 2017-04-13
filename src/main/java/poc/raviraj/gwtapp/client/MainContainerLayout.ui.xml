@@ -1,0 +1,24 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:cp="urn:import:poc.raviraj.gwtapp.client.panels">
+	<g:DockLayoutPanel unit="PX">
+		<g:north size="60">
+			<!-- header component -->
+			<cp:HeaderPanel></cp:HeaderPanel>
+		</g:north>
+
+		<g:south size="50">
+			<!-- footer component -->
+			<cp:FooterPanel></cp:FooterPanel>
+		</g:south>
+
+		<g:west size="200">
+			<!-- left menu link panel -->
+			<cp:SideBarPanel></cp:SideBarPanel>
+		</g:west>
+
+		<g:center>
+			<!-- view panel for contents -->
+			<cp:ContentPanel></cp:ContentPanel>
+		</g:center>
+	</g:DockLayoutPanel>
+</ui:UiBinder> 

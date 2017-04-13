@@ -1,0 +1,6 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:page="urn:import:poc.raviraj.gwtapp.client.pages">
+	<g:SimplePanel ui:field="contentPanel" styleName="content-panel">
+		<page:HomePage></page:HomePage>
+	</g:SimplePanel>
+</ui:UiBinder> 

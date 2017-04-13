@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="mastertypes" targetNamespace="http://service.cxfwspoc.raviraj.poc/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.cxfwspoc.raviraj.poc/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://service.cxfwspoc.raviraj.poc/" schemaLocation="mastertypes_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getAllRoles">
+    <wsdl:part name="parameters" element="tns:getAllRoles">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllDesignationsResponse">
+    <wsdl:part name="parameters" element="tns:getAllDesignationsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllDepartments">
+    <wsdl:part name="parameters" element="tns:getAllDepartments">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllDesignations">
+    <wsdl:part name="parameters" element="tns:getAllDesignations">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllGendersResponse">
+    <wsdl:part name="parameters" element="tns:getAllGendersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllDepartmentsResponse">
+    <wsdl:part name="parameters" element="tns:getAllDepartmentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllRolesResponse">
+    <wsdl:part name="parameters" element="tns:getAllRolesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllGenders">
+    <wsdl:part name="parameters" element="tns:getAllGenders">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="masterTypeService">
+    <wsdl:operation name="getAllDepartments">
+      <wsdl:input name="getAllDepartments" message="tns:getAllDepartments">
+    </wsdl:input>
+      <wsdl:output name="getAllDepartmentsResponse" message="tns:getAllDepartmentsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllGenders">
+      <wsdl:input name="getAllGenders" message="tns:getAllGenders">
+    </wsdl:input>
+      <wsdl:output name="getAllGendersResponse" message="tns:getAllGendersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDesignations">
+      <wsdl:input name="getAllDesignations" message="tns:getAllDesignations">
+    </wsdl:input>
+      <wsdl:output name="getAllDesignationsResponse" message="tns:getAllDesignationsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllRoles">
+      <wsdl:input name="getAllRoles" message="tns:getAllRoles">
+    </wsdl:input>
+      <wsdl:output name="getAllRolesResponse" message="tns:getAllRolesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="mastertypesSoapBinding" type="tns:masterTypeService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAllDepartments">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllDepartments">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllDepartmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllGenders">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllGenders">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllGendersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDesignations">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllDesignations">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllDesignationsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllRoles">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllRoles">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllRolesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="mastertypes">
+    <wsdl:port name="masterTypeServicePort" binding="tns:mastertypesSoapBinding">
+      <soap:address location="http://localhost:9090/masterTypeServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

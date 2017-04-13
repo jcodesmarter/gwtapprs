@@ -1,0 +1,189 @@
+<xs:schema xmlns:tns="http://service.cxfwspoc.raviraj.poc/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://service.cxfwspoc.raviraj.poc/" version="1.0">
+
+  <xs:element name="delete" type="tns:delete"/>
+
+  <xs:element name="deleteResponse" type="tns:deleteResponse"/>
+
+  <xs:element name="find" type="tns:find"/>
+
+  <xs:element name="findAll" type="tns:findAll"/>
+
+  <xs:element name="findAllByFirstNameOrLastNameOrUsername" type="tns:findAllByFirstNameOrLastNameOrUsername"/>
+
+  <xs:element name="findAllByFirstNameOrLastNameOrUsernameResponse" type="tns:findAllByFirstNameOrLastNameOrUsernameResponse"/>
+
+  <xs:element name="findAllResponse" type="tns:findAllResponse"/>
+
+  <xs:element name="findResponse" type="tns:findResponse"/>
+
+  <xs:element name="paginated" type="tns:paginated"/>
+
+  <xs:element name="paginatedResponse" type="tns:paginatedResponse"/>
+
+  <xs:element name="save" type="tns:save"/>
+
+  <xs:element name="saveResponse" type="tns:saveResponse"/>
+
+  <xs:complexType name="save">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:user"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="user">
+    <xs:complexContent>
+      <xs:extension base="tns:auditableModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dateOfJoining" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="department" type="tns:department"/>
+          <xs:element minOccurs="0" name="designation" type="tns:designation"/>
+          <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+          <xs:element minOccurs="0" name="gender" type="tns:gender"/>
+          <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="role" type="tns:role"/>
+          <xs:element minOccurs="0" name="userId" type="xs:long"/>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="auditableModel">
+    <xs:complexContent>
+      <xs:extension base="tns:versionableModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createdBy" type="tns:user"/>
+          <xs:element minOccurs="0" name="createdDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="modifiedBy" type="tns:user"/>
+          <xs:element minOccurs="0" name="modifiedDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="versionableModel">
+    <xs:complexContent>
+      <xs:extension base="tns:softDeleteableModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="version" type="xs:long"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="softDeleteableModel">
+    <xs:sequence>
+      <xs:element name="deleteFlag" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="department">
+    <xs:complexContent>
+      <xs:extension base="tns:masterType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="masterType">
+    <xs:complexContent>
+      <xs:extension base="tns:softDeleteableModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="keyId" type="xs:long"/>
+          <xs:element minOccurs="0" name="keyName" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="designation">
+    <xs:complexContent>
+      <xs:extension base="tns:masterType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="gender">
+    <xs:complexContent>
+      <xs:extension base="tns:masterType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="role">
+    <xs:complexContent>
+      <xs:extension base="tns:masterType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="saveResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:user"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="paginated">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="paginatedResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:user"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="delete">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:user"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:user"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="find">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:user"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAll">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findAllResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:user"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllByFirstNameOrLastNameOrUsername">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findAllByFirstNameOrLastNameOrUsernameResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:user"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

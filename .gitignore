@@ -1,0 +1,10 @@
+.settings/
+target/
+src/main/java/hibernate.cfg.xml
+src/main/gwt-unitCache/
+src/main/webapp/gwtapp/*
+src/main/webapp/WEB-INF/classes/*
+src/main/webapp/WEB-INF/lib/*
+.classpath
+.project
+hibernate.log

@@ -1,0 +1,20 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<g:HTMLPanel>
+		<g:PopupPanel ui:field="userDataContextMenu" animationEnabled="true" glassEnabled="false" modal="true" autoHideEnabled="true">
+			<g:HTMLPanel styleName="context-menu">
+				<ul>
+					<li>
+						<g:Anchor ui:field="editUser" text="Edit" href="#"></g:Anchor>
+					</li>
+					<li>
+						<g:Anchor ui:field="createNewCopyOfUser" text="New Copy" href="#"></g:Anchor>
+					</li>
+					<li>
+						<g:Anchor ui:field="deleteUser" text="Delete" href="#"></g:Anchor>
+					</li>
+				</ul>
+			</g:HTMLPanel>
+		</g:PopupPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

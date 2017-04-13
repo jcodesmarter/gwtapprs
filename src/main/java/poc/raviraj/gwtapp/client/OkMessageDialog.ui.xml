@@ -1,0 +1,11 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<g:HTMLPanel>
+		<g:DialogBox ui:field="okMessageDialogBox" animationEnabled="true" glassEnabled="true" modal="true" autoHideEnabled="true">
+			<g:VerticalPanel horizontalAlignment="center">
+				<g:Label ui:field="okMessageDialogBox_MESSAGE">This is message box with Ok Button.</g:Label>
+				<g:Button text="Ok" ui:field="okMessageDialogBox_OK"></g:Button>
+			</g:VerticalPanel>
+		</g:DialogBox>
+	</g:HTMLPanel>
+</ui:UiBinder> 

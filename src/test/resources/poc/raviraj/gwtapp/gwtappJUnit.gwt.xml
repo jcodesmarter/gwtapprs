@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to="gwtapp">
+  <!-- Inherit our applications main module.                      -->
+  <inherits name='poc.raviraj.gwtapp.gwtapp' />
+
+  <!-- Specify the path to any remote services.                   -->
+  <servlet path="/gwtapp/greet" class="poc.raviraj.gwtapp.server.GreetingServiceImpl" />
+
+</module>

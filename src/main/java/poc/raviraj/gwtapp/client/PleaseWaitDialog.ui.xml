@@ -1,0 +1,10 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<g:HTMLPanel>
+		<g:PopupPanel ui:field="pleaseWaitDialogBox" animationEnabled="true" glassEnabled="true" modal="true" autoHideEnabled="false">
+			<g:VerticalPanel horizontalAlignment="center">
+				<g:Label>Please wait ... </g:Label>
+			</g:VerticalPanel>
+		</g:PopupPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

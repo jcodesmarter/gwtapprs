@@ -1,0 +1,92 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:datepicker="urn:import:com.google.gwt.user.datepicker.client">
+	<g:FormPanel ui:field="userRegistrationForm">
+		<g:HTMLPanel>
+			<h2>User Registration Form</h2>
+			<g:Hidden ui:field="userId" value="0"></g:Hidden>
+
+			<table class='classic-form-table' width="100%">
+				<tr>
+					<td>
+					</td>
+					<td>
+						<h3>
+							<g:Label ui:field="mode" text="[New User]"></g:Label>
+						</h3>
+					</td>
+				</tr>
+				<tr>
+					<th>First Name: </th>
+					<td>
+						<g:TextBox ui:field="firstName"></g:TextBox>
+					</td>
+				</tr>
+				<tr>
+					<th>Last Name: </th>
+					<td>
+						<g:TextBox ui:field="lastName"></g:TextBox>
+					</td>
+				</tr>
+				<tr>
+					<th>Gender: </th>
+					<td>
+						<g:FlowPanel ui:field="radioButtonPanelForGender">
+						</g:FlowPanel>
+						<g:Hidden ui:field="gender" value="0"></g:Hidden>
+					</td>
+				</tr>
+				<tr>
+					<th>Date of Joining: </th>
+					<td>
+						<datepicker:DateBox ui:field="dateOfJoining"></datepicker:DateBox>
+					</td>
+				</tr>
+				<tr>
+					<th>Username: </th>
+					<td>
+						<g:TextBox ui:field="userName"></g:TextBox>
+					</td>
+				</tr>
+				<tr>
+					<th>Department: </th>
+					<td>
+						<g:ListBox ui:field="department">
+							<g:item value="0">--select--</g:item>
+							<!-- <g:item value="0">Admin</g:item> <g:item value="1">HR</g:item> <g:item value="2">IT</g:item> <g:item value="3">Accounts</g:item> -->
+						</g:ListBox>
+					</td>
+				</tr>
+				<tr>
+					<th>Designation: </th>
+					<td>
+						<g:ListBox ui:field="designation">
+							<g:item value="0">--select--</g:item>
+							<!-- <g:item value="0">Executive</g:item> <g:item value="1">Team Lead</g:item> <g:item value="2">Manager</g:item> <g:item value="3">VP</g:item> -->
+						</g:ListBox>
+					</td>
+				</tr>
+				<tr>
+					<th>Role: </th>
+					<td>
+						<g:ListBox ui:field="role">
+							<g:item value="0">--select--</g:item>
+							<!-- <g:item value="0">Level 1</g:item> <g:item value="1">Level 2</g:item> <g:item value="2">Level 3</g:item> <g:item value="3">Level 4</g:item> -->
+						</g:ListBox>
+					</td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+						<g:Button ui:field="saveButton" text="Save"></g:Button>
+						<g:Button ui:field="resetButton" text="Reset"></g:Button>
+					</td>
+				</tr>
+			</table>
+			<g:Hidden ui:field="version" value="0"></g:Hidden>	
+			<div class="validation-errors">
+				<g:HTML ui:field="validationMessageSection">
+				</g:HTML>
+			</div>		
+		</g:HTMLPanel>
+	</g:FormPanel>
+</ui:UiBinder> 
