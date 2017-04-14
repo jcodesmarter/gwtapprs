@@ -15,6 +15,7 @@ public class GwtApp implements EntryPoint {
 
 	public void onModuleLoad() {
 		Defaults.setServiceRoot(REST_BASE_URL);
+        Defaults.setDateFormat(null);
 
 		RootLayoutPanel rootLayoutPanel = RootLayoutPanel.get();
 		rootLayoutPanel.add(CONTAINER);

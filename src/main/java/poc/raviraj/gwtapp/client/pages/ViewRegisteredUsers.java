@@ -55,7 +55,7 @@ public class ViewRegisteredUsers extends Composite {
 	SimplePager pager;
 
 	private ListDataProvider<User> userDataProvider;
-	private PleaseWaitDialog pleaseWait = new PleaseWaitDialog();
+	private static PleaseWaitDialog pleaseWait = new PleaseWaitDialog();
 	private Timer timer = null;
 
 	private static UserService userService = GWT.create(UserService.class);
@@ -79,6 +79,8 @@ public class ViewRegisteredUsers extends Composite {
 		addEditButtonColumn(userCellTable);
 		addNewCopyButtonColumn(userCellTable);
 		addDeleteButtonColumn(userCellTable);
+
+		searchAllUsers(runTimeSearch.getText().trim(), 0);
 
 		// configuring ListDataProvider
 		userDataProvider = new ListDataProvider<User>();
@@ -116,9 +118,6 @@ public class ViewRegisteredUsers extends Composite {
 		}, ContextMenuEvent.getType());
 
 		pager.setDisplay(userCellTable);
-
-		pleaseWait.show();
-		searchAllUsers();
 	}
 
 	private void addUserIdColumn(CellTable<User> userCellTable) {
@@ -264,9 +263,7 @@ public class ViewRegisteredUsers extends Composite {
 					@Override
 					public void onClick(ClickEvent event) {
 						confirmBox.hide();
-						pleaseWait.show();
 						deleteUser(user, pager.getPage());
-
 					}
 				});
 				confirmBox.setCanelButtonClickHandler(new ClickHandler() {
@@ -294,52 +291,61 @@ public class ViewRegisteredUsers extends Composite {
 		timer = new Timer() {
 			@Override
 			public void run() {
-				searchAllUsers();
+				String searchText = runTimeSearch.getText().trim();
+				if (searchText.length() > 3) {
+					searchAllUsers(searchText, 0);
+				}
+
 			}
 		};
 		timer.schedule(500);
 
 	}
 
-	private void searchAllUsers() {
-
-		userService.findAll(runTimeSearch.getText().trim(), new MethodCallback<List<User>>() {
+	private void searchAllUsers(String searchText, final int currentPageNo) {
+		pleaseWait.show();
+		userService.findAll(searchText, new MethodCallback<List<User>>() {
 
 			@Override
 			public void onSuccess(Method method, List<User> users) {
+				pleaseWait.hide();
 				userCellTable.setRowData(0, users);
 				userCellTable.setRowCount(users.size());
 
 				userDataProvider.setList(users);
-				pager.setPage(0);
-				pleaseWait.hide();
-
-				GWT.log("Finally ran after " + counter + " number of keyup events");
-				counter = 0;
+				pager.setPage(currentPageNo);				
+				counter = 0;				
 			}
 
 			@Override
 			public void onFailure(Method method, Throwable exception) {
 				pleaseWait.hide();
+				counter = 0;				
 				GwtApp.showErrorMessage("Failed to load registered users list: " + exception.getMessage());
-				counter = 0;
+				
 			}
 		});
 	}
 
 	public static void deleteUser(User user, final int currentPage) {
-		
-		userService.delete(user.getUserId(), new MethodCallback<User>() {
+		pleaseWait.show();
+		userService.delete(user.getUserId(), user.getVersion(), new MethodCallback<Boolean>() {
 
 			@Override
 			public void onFailure(Method method, Throwable exception) {
+				pleaseWait.hide();
 				GwtApp.showErrorMessage("Failed to delete user : " + exception.getMessage());
 			}
 
 			@Override
-			public void onSuccess(Method method, User response) {
-				ContentPanel.changePanelContent(new ViewRegisteredUsers(currentPage));
-				GwtApp.showSuccessMessage("Successfully deleted the user");				
+			public void onSuccess(Method method, Boolean result) {
+				pleaseWait.hide();
+				if (result) {
+					ContentPanel.changePanelContent(new ViewRegisteredUsers(currentPage));
+					GwtApp.showSuccessMessage("Successfully deleted the user");
+				} else {
+					GwtApp.showErrorMessage("Couldnot delete the user");
+				}
 			}
 		});
 	}

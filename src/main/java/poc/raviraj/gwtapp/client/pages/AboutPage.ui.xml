@@ -3,10 +3,11 @@
 	<g:HTMLPanel>
 		<div>
 			<h2>About</h2>
-			<h3>POC - GWT using RPC / Hibernate</h3>
+			<h3>POC - GWT with RestyGWT and at backend Spring Rest with Hibernate</h3>
 			<ul>
 				<li>This project POC is performed by Raviraj Shettigar</li>
-				<li>Project requirement is to design UI using Google Web Toolkit and communicate with backend using RPC.</li>
+				<li>Design UI using Google Web Toolkit and ajax call using RestyGwt API. (alternative to RPC)</li>
+				<li>Server side is developed using Spring REST (with complete java configuration, no XML) and hibernate ORM</li>
 			</ul>
 		</div>
 	</g:HTMLPanel>
